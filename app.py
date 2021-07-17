@@ -75,8 +75,12 @@ def tobs():
 
     session = Session(engine)
 
+    active_station = session.query(Measurement.station, func.count(Measurement.station)).group_by(Measurement.station).\
+                order_by(func.count(Measurement.station).desc()).first()
+
     station_year_data = dt.date(2017, 8, 18) - dt.timedelta(days=365)
-    temp_data = session.query(Measurement.date, Measurement.tobs).filter((Measurement.date >= station_year_data), Measurement.station == "USC00519281").all()
+    temp_data = session.query(Measurement.date, Measurement.tobs).filter((Measurement.date >= station_year_data),\
+                 Measurement.station == active_station[0]).all()
 
     session.close
 
