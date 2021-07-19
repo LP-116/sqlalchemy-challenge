@@ -216,4 +216,6 @@ Included in the main branch of this repository are the below key files:
 
 Note: 
 Please run the app.py in Python terminal.
+Ensure a start date or state and end date is defined when running the date routes.
+The "start" and "end" needs to be replaced with a date.
 
