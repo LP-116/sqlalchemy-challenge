@@ -44,10 +44,10 @@ Design a query to calculate the total number of stations in the dataset.
 This section involved designing a Flask API based on the queries in the previous analysis.
 Routes to be created include:
 * __/__ - A homepage that lists all routes available
-* __/api/v1.0/precipitation__ - That displays the data date and prcp value as a dictionary
-* __/api/v1.0/stations__ - That returns a list of stations.
-* __/api/v1.0/tobs__ - That queries the date and TOBS of the most avtive station for the last year of data.
-* __/api/v1.0/start__ and __/api/v1.0/start/end__ - That returns a list of the minimum, average and maximum temperature rate for a given start or start-end range.
+* __/api/v1.0/precipitation__ - Displays the data date and prcp value as a dictionary
+* __/api/v1.0/stations__ - Returns a list of stations.
+* __/api/v1.0/tobs__ - Queries the date and TOBS of the most avtive station for the last year of data.
+* __/api/v1.0/start__ and __/api/v1.0/start/end__ - Returns a list of the minimum, average and maximum temperature rate for a given start or start-end range.
 
 #### Bonus section 1 - Temperature Analysis I
 
@@ -98,21 +98,58 @@ The final part of this section involved using .describe to calculate the summary
 
 #### Station Analysis
 
+The station analysis starts by using the inspector to view the column names and types of the station table.
+A count is then performed on the table to identify that there are 9 stations in the dataset.
+
+A query is then completed using the Measurement table and the station columns. The station column is called twice. Once to get the station ID and once to get the count of the station results (i.e. how many times each station ID appears in the dataset).
+
+It is determined the station USC00519281 is most active with 2772 lines in the dataset.
+
+Using the most active station as a filter a query is done to find the minimum, maximum and average temperatures at the station.
+In this case the filter matches the station column in the measurement table to the ID of the most active station.
+
+Using the most active station as a filter, we then look at a years worth of observations. To do this we find the most recent date of the most active station and then get the date 1 year before. The date 1 year before is then used as another filter for the query.
+
+As a final step for this section we use the results from the previous query and plot the results as a histogram.
 
 
 #### Climate App
 
 This section involved designing a Flask API based on the queries in the previous analysis.
-Routes to be created include:
+The analysis started by importing the setup and dependencies and then setting up the database.
+Again, the tables are reflected and references are saved.
+
+The Flask is then setup and routes are created.
+
+Routes created include:
 * __/__ - A homepage that lists all routes available
 * __/api/v1.0/precipitation__ - That displays the data date and prcp value as a dictionary
+The precipitation results for the year are determined and stored in a dictionary.
+A jsonify list of the results is returned.
+
 * __/api/v1.0/stations__ - That returns a list of stations.
+This is completed by simply running a squery on the station column in the station table and viewing all results is a jsonify list. 
+
 * __/api/v1.0/tobs__ - That queries the date and TOBS of the most avtive station for the last year of data.
+Using the climate calculation as a base, the most active station is identified and a years worth of data is determined. 
+The results are then stored in a dictionary and returned as a jsonify list.
+
 * __/api/v1.0/start__ and __/api/v1.0/start/end__ - That returns a list of the minimum, average and maximum temperature rate for a given start or start-end range.
+This route is completed using one or two filters for the dates inputted.
+The results are added to a dictionary which is then returned in jsonify format.
 
 
 #### Bonus section 1 - Temperature Analysis I
+This section starts by reading in the hawaii measurements csv.
+The date is then converted from string to datetime using pd.to_datetime.
+The date column is then set to the index of the dataframe.
 
+Data from June and December is then calculated by matching the dataframe index month to either 6 (June) or 12 (December).
+The average temperatures for June and December are determined using .mean()
+
+Collections of temperature data is then created by storing the "tobs" column of each dataset.
+
+A ttest is then performed on the June and December temps.
 
 
 #### Bonus section 2 - Temperature Analysis II
