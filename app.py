@@ -93,6 +93,8 @@ def tobs():
 
 # This route allows users to input a start date and returns the average, minimum and maximum TOBS for the range.
 # The range is all dates after the start date.
+# Ensure when loading the route to define a start date.
+
 @app.route("/api/v1.0/<start>")
 def start_date(start):
 
@@ -115,7 +117,10 @@ def start_date(start):
 
     return jsonify(all_tobs)
 
+
 # This route allows users to input a start and end date and returns the average, minimum and maximum TOBS for the defined date range.
+# Ensure when loading the route to define a start and end date.
+
 @app.route("/api/v1.0/<start>/<end>")
 def start_end_date(start, end):
 
