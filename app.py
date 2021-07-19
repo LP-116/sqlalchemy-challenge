@@ -65,9 +65,9 @@ def stations():
 
     session.close
 
-    station_name = list(np.ravel(results))
+    station_id = list(np.ravel(results))
 
-    return jsonify(station_name)
+    return jsonify(station_id)
 
 
 @app.route("/api/v1.0/tobs")
