@@ -91,6 +91,7 @@ This dataframe is then sorted by the index (the date).
 
 The precipitation results for the year are then plotted in Pandas.
 This plot was a challenge to get the plot as per the homework example. To complete this graph "matplotlib.ticker as ticker" is imported which enables the use of the "set_major_locator" parameter to define how many tick points are on the x_axis. As there are 2230 lines and 9 ticks present, the locator is set to appear every 250 entries.
+
 ![Prcp plot](https://user-images.githubusercontent.com/82348616/126107202-6afa4d79-6018-4ee6-af04-57609970e63b.PNG)
 
 The final part of this section involved using .describe to calculate the summary statistic for the precipitation data.
@@ -154,15 +155,52 @@ A ttest is then performed on the June and December temps.
 
 #### Bonus section 2 - Temperature Analysis II
 
+The final section of the homework is the section I found most difficult.
 
+The analysis starts as per the others - the engine is created, the tables reflected, the references to each table saved and the session link is established.
 
+Using the defined function we calculate the minimum, maximum and average temperatures for a historcal date range of our trip ( '2017-08-01' - '2017-08-07').
+I then use the results to create a dataframe and add an extra column titled EBAR which is the max temp - min temp.
+A bar graph is then generated. The average temperature is the height of the bar graph and EBAR is the calculation for the error bar.
 
+The rainfall is then analysed by running a session query on both the measurement and station table.
+The query includes a filter that essentially joins the tables on station ID. The filter states that the station column in the measurement table matches the station column in the station table. Another filter is applied to the query so that the results displayed is for the time period we want.
+The results are also ordered_by prcp and displayed from highest to lowest.
+
+The final part to this section involved calculating daily normal temperatures for the trip. A predefined function that calc the average, maximum and minimum temperatures is given and to start we need to get the dates in the correct formats so that we can use the function.
+
+Based on the start and end date a range of dates is calculated and added to a list.
+
+A "new_list" is then created by coverting the orginal list to the correct format using date.strftime.
+
+We then create a new list titled 'normals' and use the predefined function on our new_list, appending each entry into the normals list.
+
+A blank dataframe is then created and the normals list is added to the dataframe.
+The dates are also added as the index for the dataframe.
+
+For the final part in this homework we plot the temperature data as a area graph.
 
 
 ---
 ### Results
 
+We have learnt the below from completing the analysis:
 
+* The majority of days have high temperatures around 75 degrees
+
+![histo](https://user-images.githubusercontent.com/82348616/126110276-635be37c-7b3c-42f1-9aeb-d7621cb184d6.PNG)
+
+* The p-value in the TTest is very low below 0 (e-187), this suggests that the test is statistically significant.
+![TTest](https://user-images.githubusercontent.com/82348616/126110544-f27fe817-164c-49c6-9302-9ad8d369b69b.PNG)
+
+
+* For 2017 the average temperature was just below 80
+
+![bar](https://user-images.githubusercontent.com/82348616/126110491-582a9611-bc8c-450e-b102-58b0009cd51b.PNG)
+
+* Historical data for the year 2017 for the trip dates show a maximum temperature of above 80 and a minimum of just below 70.
+
+![area](https://user-images.githubusercontent.com/82348616/126110691-8916da50-c84e-43e2-b56c-ad9238771280.PNG)
 
 
 ---
