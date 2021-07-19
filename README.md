@@ -206,4 +206,14 @@ We have learnt the below from completing the analysis:
 ---
 ### Files
 
+Included in the main branch of this repository are the below key files:
+
+* A resources folder which contains the sqlite database and the csv files.
+* climate_starter.ipynb file which is the first part of the assignment.
+* app.py file for the Flask analysis
+* temp_analysis_bonus_1_starter.ipynb file which is the first part of the bonus section.
+* temp_analysis_bonus_2_starter.ipynb file which is the second part of the bonus section.
+
+Note: 
+Please run the app.py in Python terminal.
 
