@@ -21,12 +21,12 @@ For this section we need to complete some basic analysis and data exploration of
 The analysis should be completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
 We need to connect to the sqlite database, reflect the tables into classes, save references to the tables and finally link Python to the database by creating an SQLAlchemy session.
 
-# Precipitation Analysis
+#### Precipitation Analysis
 
 The precipation analysis involves retrieving 12 months worth of precipitation data and turning it into a Pandas Dataframe.
 We then need to plot the results using the DataFrame plot method.
 
-# Station Analysis
+#### Station Analysis
 
 The station analysis involves designing queries to provide the below results:
 Design a query to calculate the total number of stations in the dataset.
@@ -39,7 +39,7 @@ Design a query to calculate the total number of stations in the dataset.
 * Query the last 12 months of temperature observation data for this station.
 * Plot the results as a histogram with bins=12
 
-# Climate App
+#### Climate App
 
 This section involved designing a Flask API based on the queries in the previous analysis.
 Routes to be created include:
@@ -47,7 +47,7 @@ Routes to be created include:
 * __/api/v1.0/precipitation__ - That displays the data date and prcp value as a dictionary
 * __/api/v1.0/stations__ - That returns a list of stations.
 * __/api/v1.0/tobs__ - That queries the date and TOBS of the most avtive station for the last year of data.
-* __/api/v1.0/<start> __ and __/api/v1.0/<start>/<end>__
+* __/api/v1.0/start__ and __/api/v1.0/\<start>\*/\<end>*\__
 
 ---
 ### Method
