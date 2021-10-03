@@ -1,5 +1,5 @@
 # SQLAlchemy Challenge
-## SQLAlchemy Homework - Surf's Up!
+## Surf's Up!
 
 ---
 ### Task
@@ -90,7 +90,7 @@ The results are then turned into a dataframe and the index is set as the date.
 This dataframe is then sorted by the index (the date).
 
 The precipitation results for the year are then plotted in Pandas.
-This plot was a challenge to get the plot as per the homework example. To complete this graph "matplotlib.ticker as ticker" is imported which enables the use of the "set_major_locator" parameter to define how many tick points are on the x_axis. As there are 2230 lines and 9 ticks present, the locator is set to appear every 250 entries.
+This plot was a challenge to get the plot as per the example. To complete this graph "matplotlib.ticker as ticker" is imported which enables the use of the "set_major_locator" parameter to define how many tick points are on the x_axis. As there are 2230 lines and 9 ticks present, the locator is set to appear every 250 entries.
 
 ![Prcp plot](https://user-images.githubusercontent.com/82348616/126107202-6afa4d79-6018-4ee6-af04-57609970e63b.PNG)
 
@@ -155,7 +155,7 @@ A ttest is then performed on the June and December temps.
 
 #### Bonus section 2 - Temperature Analysis II
 
-The final section of the homework is the section I found most difficult.
+The final section of the challenge is the section I found most difficult.
 
 The analysis starts as per the others - the engine is created, the tables reflected, the references to each table saved and the session link is established.
 
@@ -178,7 +178,7 @@ We then create a new list titled 'normals' and use the predefined function on ou
 A blank dataframe is then created and the normals list is added to the dataframe.
 The dates are also added as the index for the dataframe.
 
-For the final part in this homework we plot the temperature data as a area graph.
+For the final part in this challenge we plot the temperature data as a area graph.
 
 
 ---
